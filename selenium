@@ -1,0 +1,49 @@
+from selenium.common.exceptions import TimeoutException
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait
+
+
+class WebsitePage:
+    """Page object: stores locators and reusable browser actions."""
+
+    # Replace these example locators to match the target website.
+    HOME_LINK = (By.ID, "nav-home")
+    ABOUT_LINK = (By.ID, "nav-about")
+    CONTACT_LINK = (By.ID, "nav-contact")
+    PAGE_HEADING = (By.ID, "page-heading")
+
+    def __init__(self, driver, timeout=10):
+        self.driver = driver
+        self.wait = WebDriverWait(driver, timeout)
+
+    def open(self, url):
+        """Open the URL and wait until the page heading is present."""
+        self.driver.get(url)
+        self.wait.until(EC.presence_of_element_located(self.PAGE_HEADING))
+
+    def get_title(self):
+        """Return the text inside the <title> tag of the current page."""
+        return self.driver.title
+
+    def get_current_url(self):
+        """Return the URL shown in the browser address bar."""
+        return self.driver.current_url
+
+    def click_link(self, locator):
+        """Click a navigation link once it becomes clickable."""
+        self.wait.until(EC.element_to_be_clickable(locator)).click()
+
+    def wait_for_title(self, expected_title):
+        """Return True if the title becomes expected_title before timeout."""
+        try:
+            return self.wait.until(EC.title_is(expected_title))
+        except TimeoutException:
+            return False
+
+    def wait_for_url_contains(self, text):
+        """Return True if the current URL contains text before timeout."""
+        try:
+            return self.wait.until(EC.url_contains(text))
+        except TimeoutException:
+            return False
