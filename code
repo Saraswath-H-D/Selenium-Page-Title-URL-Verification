@@ -1,0 +1,86 @@
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home - Demo Web Portal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #f0f4f8;
+            color: #222;
+        }
+        nav {
+            background: #174a72;
+            padding: 14px 25px;
+        }
+        nav a {
+            color: white;
+            margin-right: 20px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .container {
+            max-width: 750px;
+            margin: 30px auto;
+            background: white;
+            padding: 22px;
+            border-radius: 10px;
+        }
+        h1 {
+            color: #174a72;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a id="nav-home" href="index.html">Home</a>
+        <a id="nav-about" href="about.html">About Us</a>
+        <a id="nav-contact" href="contact.html">Contact Us</a>
+    </nav>
+    <div class="container">
+        <h1 id="page-heading">Welcome to the Demo Web Portal</h1>
+        <p>This sample website is used to practise page title
+           and URL verification with Selenium WebDriver.</p>
+        <p>Use the navigation links above to open other pages.</p>
+    </div>
+</body>
+</html>
+
+     about.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About Us - Demo Web Portal</title>
+</head>
+<body>
+    <nav>
+        <a id="nav-home" href="index.html">Home</a>
+        <a id="nav-about" href="about.html">About Us</a>
+        <a id="nav-contact" href="contact.html">Contact Us</a>
+    </nav>
+    <h1 id="page-heading">About Us</h1>
+    <p>This page describes the purpose of the demo portal.</p>
+</body>
+</html>
+
+     contact.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Us - Demo Web Portal</title>
+</head>
+<body>
+    <nav>
+        <a id="nav-home" href="index.html">Home</a>
+        <a id="nav-about" href="about.html">About Us</a>
+        <a id="nav-contact" href="contact.html">Contact Us</a>
+    </nav>
+    <h1 id="page-heading">Contact Us</h1>
+    <p>Email: info@demoportal.example</p>
+</body>
+</html>
+
